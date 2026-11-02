@@ -1,0 +1,359 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+
+        <title>Storage Benchmark Analysis Report</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 40px;
+                background-color: #f5f7fa;
+                color: #333;
+            }
+
+            .container {
+                max-width: 1100px;
+                margin: auto;
+                background: white;
+                padding: 30px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                color: #1f3a5f;
+            }
+
+            h2 {
+                margin-top: 35px;
+                color: #294c73;
+                border-bottom: 2px solid #e5eaf0;
+                padding-bottom: 8px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 15px;
+            }
+
+            th, td {
+                padding: 12px;
+                border: 1px solid #ddd;
+                text-align: left;
+                white-space: nowrap;
+            }
+
+            th {
+                background-color: #eaf0f6;
+            }
+
+            .table-wrapper {
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .statistics-table {
+                min-width: 1250px;
+            }
+
+            .chart {
+                width: 100%;
+                margin-top: 20px;
+                border: 1px solid #eee;
+            }
+
+            .note {
+                background: #fff8e6;
+                padding: 15px;
+                border-left: 4px solid #e0a526;
+                margin-top: 20px;
+                line-height: 1.6;
+            }
+
+            .footer {
+                margin-top: 40px;
+                color: #777;
+                font-size: 13px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+    <div class="container">
+
+        <h1>Storage Benchmark Analysis Report</h1>
+
+        <p>
+            Generated at:
+            2026-11-02 20:33:25
+        </p>
+
+        <h2>1. Test Configuration</h2>
+
+        <table>
+            <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+            </tr>
+
+            <tr>
+                <td>fio Version</td>
+                <td>fio-3.43</td>
+            </tr>
+
+            <tr>
+                <td>Test Name</td>
+                <td>sequential_read</td>
+            </tr>
+
+            <tr>
+                <td>Workload</td>
+                <td>read</td>
+            </tr>
+
+            <tr>
+                <td>Direction</td>
+                <td>Read</td>
+            </tr>
+
+            <tr>
+                <td>Block Size</td>
+                <td>128k</td>
+            </tr>
+
+            <tr>
+                <td>Runtime</td>
+                <td>120005 ms</td>
+            </tr>
+        </table>
+
+
+        <h2>2. Performance Summary</h2>
+
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Result</th>
+            </tr>
+
+            <tr>
+                <td>Read IOPS</td>
+                <td>39,671.06 IOPS</td>
+            </tr>
+
+            <tr>
+                <td>Read Bandwidth</td>
+                <td>5,077,895.00 KiB/s</td>
+            </tr>
+
+            <tr>
+                <td>Average Completion Latency</td>
+                <td>21.61 µs</td>
+            </tr>
+
+            <tr>
+                <td>Latency Standard Deviation</td>
+                <td>79.21 µs</td>
+            </tr>
+
+            <tr>
+                <td>Latency P95</td>
+                <td>71.17 µs</td>
+            </tr>
+
+            <tr>
+                <td>Latency P99</td>
+                <td>254.98 µs</td>
+            </tr>
+
+            <tr>
+                <td>Latency P99.9</td>
+                <td>618.50 µs</td>
+            </tr>
+        </table>
+
+
+        <h2>3. Time-Series Descriptive Statistics</h2>
+
+        <div class="table-wrapper">
+
+            <table class="statistics-table">
+
+                <tr>
+                    <th>Metric</th>
+                    <th>Samples</th>
+                    <th>Mean</th>
+                    <th>Median</th>
+                    <th>Minimum</th>
+                    <th>Maximum</th>
+                    <th>Std Dev</th>
+                    <th>P95</th>
+                    <th>P99</th>
+                    <th>P99.9</th>
+                    <th>CV</th>
+                </tr>
+
+                
+        <tr>
+            <td>IOPS</td>
+            <td>119</td>
+            <td>39,676.36 IOPS</td>
+            <td>42,468.00 IOPS</td>
+            <td>16,656.00 IOPS</td>
+            <td>43,753.00 IOPS</td>
+            <td>6,920.42 IOPS</td>
+            <td>43,517.70 IOPS</td>
+            <td>43,718.28 IOPS</td>
+            <td>43,751.11 IOPS</td>
+            <td>17.44%</td>
+        </tr>
+        
+        <tr>
+            <td>Bandwidth</td>
+            <td>119</td>
+            <td>5,078,628.00 KiB/s</td>
+            <td>5,435,912.00 KiB/s</td>
+            <td>2,132,015.00 KiB/s</td>
+            <td>5,600,384.00 KiB/s</td>
+            <td>885,818.28 KiB/s</td>
+            <td>5,570,332.60 KiB/s</td>
+            <td>5,595,991.72 KiB/s</td>
+            <td>5,600,147.06 KiB/s</td>
+            <td>17.44%</td>
+        </tr>
+        
+        <tr>
+            <td>Completion Latency</td>
+            <td>120</td>
+            <td>22.85 µs</td>
+            <td>19.97 µs</td>
+            <td>19.43 µs</td>
+            <td>55.31 µs</td>
+            <td>7.52 µs</td>
+            <td>40.66 µs</td>
+            <td>52.30 µs</td>
+            <td>55.02 µs</td>
+            <td>32.92%</td>
+        </tr>
+        
+
+            </table>
+
+        </div>
+
+
+        <h2>4. Performance Trends</h2>
+
+        <h3>IOPS Trend</h3>
+        <img class="chart"
+             src="iops_trend.png"
+             alt="IOPS Trend">
+
+        <h3>Bandwidth Trend</h3>
+        <img class="chart"
+             src="bw_trend.png"
+             alt="Bandwidth Trend">
+
+        <h3>Completion Latency Trend</h3>
+        <img class="chart"
+             src="clat_trend.png"
+             alt="Latency Trend">
+
+
+        <h2>5. Exploratory Data Analysis (EDA)</h2>
+
+        <p>
+            Number of time-series samples analyzed:
+            119
+        </p>
+
+        <h3>Performance Metric Distributions</h3>
+
+        <img class="chart"
+             src="eda_histograms.png"
+             alt="Performance Metric Histograms">
+
+        <h3>Performance Metric Box Plots</h3>
+
+        <img class="chart"
+             src="eda_boxplots.png"
+             alt="Performance Metric Box Plots">
+
+        <h3>IOPS and Bandwidth Correlation</h3>
+
+        <p>
+            Pearson correlation coefficient:
+            1.0000
+        </p>
+
+        <p>
+            Number of paired samples:
+            119
+        </p>
+
+        <img class="chart"
+             src="eda_correlation.png"
+             alt="IOPS and Bandwidth Correlation">
+
+
+        <h2>6. Test Notes</h2>
+
+        <div class="note">
+
+            <strong>Data interpretation:</strong>
+
+            The JSON file contains overall benchmark statistics,
+            while the LOG files contain time-series measurements.
+            Their averages may differ because they use different
+            aggregation methods.
+
+            <br><br>
+
+            <strong>Statistical interpretation:</strong>
+
+            Descriptive statistics and percentiles in Section 3
+            are calculated from time-series log samples. They
+            describe the distribution of recorded interval
+            measurements, rather than individual I/O operations.
+            The percentile values in Section 2 are fio's overall
+            latency statistics.
+
+            <br><br>
+
+            <strong>Correlation limitation:</strong>
+
+            IOPS and bandwidth are related through block size.
+            Their correlation does not establish a causal
+            relationship.
+
+            <br><br>
+
+            <strong>Test limitation:</strong>
+
+            This project uses direct=0 in its current sample
+            configuration. Therefore, operating system page
+            cache may influence the results. The measurements
+            are intended to demonstrate the data parsing and
+            analysis workflow, rather than provide a definitive
+            physical SSD performance benchmark.
+
+        </div>
+
+
+        <div class="footer">
+            Storage Benchmark Analyzer |
+            Python, Pandas and Matplotlib
+        </div>
+
+    </div>
+
+    </body>
+    </html>
+    

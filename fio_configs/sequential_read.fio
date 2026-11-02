@@ -1,0 +1,17 @@
+
+[global]
+ioengine=psync
+direct=0
+time_based=1
+runtime=120
+ramp_time=10
+size=256M
+group_reporting=1
+filename=./data/raw/sequential_read/fio_test_file
+log_avg_msec=1000
+
+[sequential_read]
+rw=read
+bs=128k
+iodepth=1
+numjobs=1

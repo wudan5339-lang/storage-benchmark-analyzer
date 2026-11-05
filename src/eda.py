@@ -6,8 +6,14 @@ import matplotlib.pyplot as plt
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_REPORT_DIR = PROJECT_ROOT / "reports"
-DEFAULT_DATA_DIR = PROJECT_ROOT / "data" / "raw" / "benchmark_01"
+
+DEFAULT_BENCHMARK = "random_read"
+
+DATA_DIR = PROJECT_ROOT / "data" / "raw"
+REPORTS_DIR = PROJECT_ROOT / "reports"
+
+DEFAULT_DATA_DIR = DATA_DIR / DEFAULT_BENCHMARK
+DEFAULT_REPORT_DIR = REPORTS_DIR / DEFAULT_BENCHMARK
 
 
 def prepare_eda_data(log_data):

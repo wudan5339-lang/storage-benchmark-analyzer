@@ -5,16 +5,14 @@ from pathlib import Path
 
 # Project paths
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DATA_DIR = PROJECT_ROOT / "data" / "raw" / "benchmark_01"
+DATA_DIR = PROJECT_ROOT / "data" / "raw"
 
 
 def parse_fio_json(file_path):
     """
     Parse a fio JSON output file.
-
     Automatically selects read or write performance data
     according to the workload configuration.
-
     Latency values are converted from nanoseconds to microseconds.
     """
 
@@ -23,14 +21,19 @@ def parse_fio_json(file_path):
         data = json.load(file)
 
     # Get the first job
-    job = data["jobs"][0]
+    jobs = data.get("jobs", [])
+
+    if not jobs:
+        raise ValueError("No job data found in fio JSON file.")
+
+    job = jobs[0]
 
     # Get workload configuration
     job_options = job.get("job options", {})
     workload = job_options.get("rw", "unknown")
 
     # Select read or write results
-    if "write" in workload and "readwrite" not in workload:
+    if workload in ["write", "randwrite"]:
         direction = "write"
     else:
         direction = "read"
@@ -80,7 +83,8 @@ def parse_fio_json(file_path):
 
 if __name__ == "__main__":
 
-    json_file = DATA_DIR / "sample_fio.json"
+    # Test with one benchmark JSON file
+    json_file = DATA_DIR / "random_read" / "sample_fio.json"
 
     benchmark_result = parse_fio_json(json_file)
 

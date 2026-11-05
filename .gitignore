@@ -22,4 +22,7 @@ dist/
 *.egg-info/
 
 # Temporary files
-*.tmpdata/raw/*/fio_test_file
+*.tmp
+
+# fio benchmark test files
+data/raw/*/fio_test_file

@@ -1,8 +1,6 @@
 
 import pandas as pd
 
-from src.log_parser import parse_all_logs
-
 
 def calculate_metrics(df, metric_name):
     """
@@ -22,11 +20,8 @@ def calculate_metrics(df, metric_name):
             f"Column '{metric_name}' not found in DataFrame."
         )
 
-    # Convert values to numeric and remove invalid entries
-    values = pd.to_numeric(
-        df[metric_name],
-        errors="coerce"
-    ).dropna()
+
+    values = df[metric_name].dropna()
 
     if values.empty:
         return {
@@ -93,17 +88,9 @@ def analyze_all_metrics(log_data):
 
     results = {}
 
-    metric_columns = {
-        "iops": "iops",
-        "bw_kib_s": "bw_kib_s",
-        "clat_ns": "clat_ns"
-    }
-
-    for metric_name, column_name in metric_columns.items():
-
+    for metric_name in ["iops", "bw_kib_s", "clat_ns"]:
         results[metric_name] = calculate_metrics(
             log_data[metric_name],
-            column_name
+            metric_name
         )
-
     return results

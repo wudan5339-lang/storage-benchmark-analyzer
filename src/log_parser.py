@@ -54,14 +54,9 @@ def parse_all_logs(data_dir):
 
     log_data = {}
 
-    for key, file_path in log_files.items():
-        metric_name = {
-            "iops": "iops",
-            "bw_kib_s": "bw_kib_s",
-            "clat_ns": "clat_ns"
-        }[key]
+    for metric_name, file_path in log_files.items():
 
-        log_data[key] = parse_fio_log(
+        log_data[metric_name] = parse_fio_log(
             file_path,
             metric_name
         )

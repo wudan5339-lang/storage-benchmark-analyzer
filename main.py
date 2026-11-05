@@ -48,10 +48,11 @@ def main():
             benchmark_dir / "sample_clat.1.log"
         ]
 
-        missing_files = [
-            file for file in required_files
-            if not file.exists()
-        ]
+        missing_files = []
+
+        for file in required_files:
+            if not file.exists():
+                missing_files.append(file)
 
         if missing_files:
 

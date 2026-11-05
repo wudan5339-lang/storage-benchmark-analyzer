@@ -5,9 +5,15 @@ from pathlib import Path
 from src.log_parser import parse_all_logs
 
 
+# Project directories
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_REPORT_DIR = PROJECT_ROOT / "reports"
-DEFAULT_DATA_DIR = PROJECT_ROOT / "data" / "raw" / "benchmark_01"
+DATA_DIR = PROJECT_ROOT / "data" / "raw"
+REPORTS_DIR = PROJECT_ROOT / "reports"
+
+# Default benchmark for standalone testing
+DEFAULT_BENCHMARK = "random_read"
+DEFAULT_DATA_DIR = DATA_DIR / DEFAULT_BENCHMARK
+DEFAULT_REPORT_DIR = REPORTS_DIR / DEFAULT_BENCHMARK
 
 
 def plot_metric(df, metric_name, title, ylabel, filename,
@@ -16,9 +22,11 @@ def plot_metric(df, metric_name, title, ylabel, filename,
     Generate a performance trend chart.
     """
 
+    # Prepare data
     time_seconds = df["time_ms"] / 1000
     values = df[metric_name] / divisor
 
+    # Create chart
     plt.figure(figsize=(10, 5))
 
     plt.plot(
@@ -36,6 +44,7 @@ def plot_metric(df, metric_name, title, ylabel, filename,
     plt.legend()
     plt.tight_layout()
 
+    # Save chart
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 

@@ -71,7 +71,7 @@ storage-benchmark-analyzer/
 - **fio_configs/**: Contains the fio configuration files for the four workloads.
 - **src/**: Contains Python modules for parsing data, calculating metrics, generating visualizations, and performing exploratory data analysis.
 - **reports/**: Stores generated charts and HTML reports.
-- **main.py**: Runs the complete benchmark analysis pipeline.
+- **main.py**: Runs the benchmark analysis pipeline using existing fio results.
 - **requirements.txt**: Lists the required Python packages.
 
 ## Reports
@@ -103,17 +103,30 @@ pip install -r requirements.txt
 
 ### 3. Run the analysis
 
+Make sure the existing fio benchmark result files are available in the corresponding subdirectories under `data/raw/`.
+
 Run the following command from the project root directory:
 
 ```bash
 python main.py
 ```
 
-The generated charts and HTML dashboard will be saved in the `reports/` directory.
+The script will process the existing benchmark results, calculate performance statistics, generate charts, and create the HTML dashboard.
+
+All generated reports will be saved in the `reports/` directory.
+
+### 4. Open the HTML Dashboard
+
+After the analysis is complete, open the following file in a web browser:
+
+```text
+reports/benchmark_dashboard.html
+```
+
+You can double-click the HTML file or open it directly in a browser such as Chrome or Firefox to view the combined dashboard.
 
 ## Project Purpose
 
 I developed this project to strengthen my Python programming and data analysis skills through a practical application.
 
 By working with fio benchmark results, I gained experience in processing JSON and LOG files, using Pandas to analyze time-series data, calculating descriptive statistics, and visualizing storage performance.
-

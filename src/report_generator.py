@@ -139,14 +139,6 @@ def generate_report(
             </tr>
             """
 
-        # EDA correlation
-        correlation = eda.get("correlation")
-
-        if correlation is None:
-            correlation_text = "N/A"
-        else:
-            correlation_text = format_number(correlation, 4)
-
         # EDA sample information
         sample_count = eda.get("sample_count", 0)
 
@@ -156,8 +148,7 @@ def generate_report(
             ("Bandwidth Performance Trend", "bw_trend.png"),
             ("Completion Latency Trend", "clat_trend.png"),
             ("Histograms", "eda_histograms.png"),
-            ("Box Plots", "eda_boxplots.png"),
-            ("IOPS vs Bandwidth", "eda_correlation.png")
+            ("Box Plots", "eda_boxplots.png")
         ]
 
         images_html = ""
@@ -207,11 +198,6 @@ def generate_report(
             </table>
 
             <h3>Exploratory Data Analysis</h3>
-
-            <p>
-                IOPS and Bandwidth Pearson correlation:
-                <strong>{correlation_text}</strong>
-            </p>
 
             <div class="charts">
                 {images_html}
